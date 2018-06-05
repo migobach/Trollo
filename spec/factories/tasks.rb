@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
-    body "MyString"
+    body "Body of my task"
     priority 1
-    list nil
+    list
   end
 end

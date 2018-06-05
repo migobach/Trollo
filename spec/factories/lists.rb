@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :list do
-    sequence(:title) { |n| "Title#{n}"}
+    title "List Item"
     priority 1
     board
   end
