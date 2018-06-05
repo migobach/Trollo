@@ -1,7 +1,10 @@
 FactoryBot.define do
   factory :list do
-    title "MyString"
+    sequence(:title) { |n| "Title#{n}"}
     priority 1
-    board nil
+    board
   end
 end
+
+#how do I define how many? 
+#how do I set a number range? (1..9)
