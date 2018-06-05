@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe List, type: :model do
-  let(:title) { FactoryBot.create(:title) }
-  let(:priority) { FactoryBot.create(:priority) }
-  let(:board_id) { FactoryBot.create(:board_it)}
+  # let(:title) { FactoryBot.create(:title) }
+  # let(:priority) { FactoryBot.create(:priority) }
+  # let(:board_id) { FactoryBot.create(:board_it)}
   
   describe 'attributes' do [
     :title, 
@@ -12,7 +12,7 @@ RSpec.describe List, type: :model do
   end
 
   describe 'validations' do 
-    it { should validate_presence_of (:title) }
+    it { should validate_presence_of(:title) }
   end
 
   describe 'methods' do
