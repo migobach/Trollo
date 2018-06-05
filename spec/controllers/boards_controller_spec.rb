@@ -89,5 +89,34 @@ RSpec.describe BoardsController, type: :controller do
       end
     end
 
+    context "with invalid params" do
+      it 'does not update the board' do 
+        board = Board.create! valid_attributes
+        put :update, params: { id: board.id, board: invalid_attributes }
+        board.reload 
+        expect(board.priority).to_not eq(invalid_attributes[:priority])
+      end
+
+      it 'return a success (edit template)' do 
+        board = Board.create! valid_attributes
+        put :update, params: { id: board.id, board: invalid_attributes }
+        expect(response).to be_successful
+      end
+    end
   end 
+
+  describe "DELETE #destroy" do
+    it 'destroys the requested board' do 
+      board = Board.create! valid_attributes
+      expect {
+        delete :destroy, params: { id: board.id } 
+      }.to change(Board, :count).by(-1)
+    end
+
+    it 'redirects to the board index' do
+      board = Board.create! valid_attributes
+      delete :destroy, params: { id: board.id }
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end
