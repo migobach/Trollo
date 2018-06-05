@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :board do
-    priority 1
+    priority 
+    
   end
 end

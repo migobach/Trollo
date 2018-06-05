@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2018_06_04_203333) do
   create_table "boards", force: :cascade do |t|
     t.string "title"
     t.integer "priority"
+    t.string "color"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
