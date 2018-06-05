@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  root 'boards#index'
+
+  resources :boards do 
+    resources :lists
+  end
+
+  scope 'tasks/:task_id', as: 'task' do
+    resources :body, :priority, only: [:new, :edit, :create, :update, :delete]
+  end
 end
