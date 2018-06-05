@@ -17,16 +17,18 @@ RSpec.describe List, type: :model do
 
   describe 'methods' do
     before(:each) do 
-      @list1 = List.create(title: 'Atitle', priority: 4, board_id: 1)
-      @list2 = List.create(title: 'Btitle', priority: 40, board_id: 1)
-      @list3 = List.create(title: 'Ctitle', priority: 10, board_id: 1)
-      @list4 = List.create(title: 'Dtitle', priority: 100, board_id: 1)
-      
+      @board = Board.create(title: 'note', priority: 1, color: 'green', first_name:'me', last_name: 'last')
+
+      @list1 = List.create(title: 'Atitle', priority: 4, board_id: @board.id)
+      @list2 = List.create(title: 'Btitle', priority: 40, board_id: @board.id)
+      @list3 = List.create(title: 'Ctitle', priority: 10, board_id: @board.id)
+      @list4 = List.create(title: 'Dtitle', priority: 100, board_id: @board.id)
+    
     end
 
     it 'orders by title asc' do
       @lists = List.by_title
-      binding.pry
+      # binding.pry
       expect(@lists).to eq([@list1, @list2, @list3, @list4])
     end
 
