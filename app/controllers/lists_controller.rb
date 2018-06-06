@@ -32,7 +32,7 @@ class ListsController < ApplicationController
     if @list.update(list_params)
       redirect_to [@board, @list]
     else
-      render :edit
+      render :form
     end
   end
 
