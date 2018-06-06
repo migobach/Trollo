@@ -24,7 +24,8 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to [@board, @list]
     else
-      render :new
+      # binding.pry
+      render :form
     end
   end
 
