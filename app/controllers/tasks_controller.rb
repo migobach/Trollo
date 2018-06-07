@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
+  before_action :set_list
+  before_action :set_tasks
+
   def index
+    binding.pry
     @tasks = @list.tasks
   end
 
@@ -41,10 +45,12 @@ class TasksController < ApplicationController
   private
 
   def set_list
-    @list = list.find(params[@list_id])
+    # binding.pry
+    @list = List.find(params[:list_id])
   end
 
   def set_tasks
+    # binding.pry
     @task = Task.find(params[:id])
   end
 

@@ -46,7 +46,6 @@ RSpec.describe ListsController, type: :controller do
 
       it "redirects to the board" do
         board = FactoryBot.create(:board)
-        
         post :create, params: { board_id: board.id, list: { title: 'List Name', priority: 1 } }
         expect(response).to redirect_to(board_list_path(board.id, List.all.last))
       end
@@ -99,7 +98,7 @@ RSpec.describe ListsController, type: :controller do
         list = FactoryBot.create(:list)
         put :update, params: { board_id: list.board_id, id: list.id, list: { title: '', priority: 6 } }
         list.reload
-        expect(response).to be_successful
+        expect(response).to be_successful 
       end
     end
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :lists
   end
 
-  scope 'tasks/:task_id', as: 'task' do
-    resources :body, :priority, only: [:new, :edit, :create, :update, :delete]
+  scope 'lists/:list_id', as: 'list' do
+    resources :tasks
   end
 end
